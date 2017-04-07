@@ -7,6 +7,13 @@ namespace Com.PDev.PCG {
 
 		#region Public Var
 
+		[Tooltip("The UI Panel to let the user enter name, connect and play")]
+		public GameObject controlPanel;
+
+		[Tooltip("The UI Label to inform the user that the connection is in progress")]
+		public GameObject progressLabel;
+
+
 		/// <summary>
 		/// The maximum number of players per room. When a room is full, it can't be joined by new players, and so new room will be created.
 		/// </summary>   
@@ -20,6 +27,11 @@ namespace Com.PDev.PCG {
 		#endregion
 
 		#region Private Var
+
+		/// <summary>
+		/// Keep track of the asynchronous connection process 
+		/// </summary>
+		bool isConnecting;
 
 		/// <summary>
 		/// This client's version number. 
@@ -44,12 +56,23 @@ namespace Com.PDev.PCG {
 			PhotonNetwork.logLevel = Loglevel;
 
 		}
+
+		void Start(){
+
+			SetProgressViewVisible (false);
+
+		}
 			
 		#endregion
 
 		#region Public Methods
 
+
 		public void Connect(){
+
+			isConnecting = true;
+
+			SetProgressViewVisible (true);
 
 			if (PhotonNetwork.connected) {
 
@@ -63,19 +86,33 @@ namespace Com.PDev.PCG {
 
 		#endregion
 
+		#region Private Methods
+
+		private void SetProgressViewVisible(bool visible){
+
+			progressLabel.SetActive (visible);
+			controlPanel.SetActive (!visible);
+		}
+
+		#endregion
+
 		#region Pun Behaviour Callbacks
 
 		public override void OnConnectedToMaster(){
 
-			Debug.Log ("DemoAnimator/Launcher: OnConnectedToMaster() was called by PUN");
+			Debug.Log ("PCG/Launcher: OnConnectedToMaster() was called by PUN");
 
-			PhotonNetwork.JoinRandomRoom ();
+			if (isConnecting){
+				PhotonNetwork.JoinRandomRoom ();
+			}
 
 		}
 
 		public override void OnDisconnectedFromPhoton(){
 
-			Debug.LogWarning("DemoAnimator/Launcher: OnDisconnectedFromPhoton() was called by PUN");
+			SetProgressViewVisible (false);
+
+			Debug.LogWarning("PCG/Launcher: OnDisconnectedFromPhoton() was called by PUN");
 		
 		}
 
@@ -89,6 +126,16 @@ namespace Com.PDev.PCG {
 		public override void OnJoinedRoom()
 		{
 			Debug.Log("DemoAnimator/Launcher: OnJoinedRoom() called by PUN. Now this client is in a room.");
+
+			// #Critical
+			if (PhotonNetwork.room.PlayerCount == 1) {
+
+				Debug.Log("We Load the 'game1p'");
+
+				PhotonNetwork.LoadLevel ("game1p");
+
+			}
+				
 		}
 
 
