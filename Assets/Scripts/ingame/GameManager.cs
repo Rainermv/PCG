@@ -1,6 +1,9 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using System;
+using System.Collections;
+using Photon;
 using UnityEngine;
+using UnityEngine.UI;
+using Random = UnityEngine.Random;
 
 using UnityEngine.SceneManagement;
 
@@ -21,32 +24,57 @@ namespace Com.PDev.PCG{
 
 		#endregion
 
+		private PunTurnManager turnManager;
+
+		private PlayerData local_player;
+		private RulesetData ruleset;
+
+		public int player_number = 0;
+
+		#region MonoBehaviour CallBacks
+
+		// Use this for initialization
+		void Start () {
+
+			Instance = this;
+
+			local_player = ServerConnection.Instance.getPlayerData (PhotonNetwork.player);
+			ruleset = ServerConnection.Instance.getRulesetData ();
+
+
+
+			/*
+			if (playerPrefab == null) {
+				Debug.LogError("<Color=Red><a>Missing</a></Color> playerPrefab Reference (Game Manager)", this);
+			} else {
+				//Debug.Log("Instantiating LocalPlayer from " + Application.loadedLevelName);
+
+				// Spawn a character for the local player
+				PhotonNetwork.Instantiate(this.playerPrefab.name, new Vector3(0f,0f,0f), Quaternion.identity, 0);
+			}
+			*/
+
+			this.StartTurn ();
+		}
+
+		// Update is called once per frame
+		void Update () {
+
+		}
+
+		#endregion
+
 		#region Photon Messages
 
 		public override void OnPhotonPlayerConnected( PhotonPlayer other ){
 
 			Debug.Log ("OnPhotonPlayerConnected() " + other.NickName);
 
-			if (PhotonNetwork.isMasterClient) {
-
-				Debug.Log ("OnPhotonPlayerConnected is MasterClient " + PhotonNetwork.isMasterClient);
-
-				LoadArena ();
-			}
-
 		}
 
 		public override void OnPhotonPlayerDisconnected( PhotonPlayer other){
 
 			Debug.Log ("OnPhotonPlayerDisconnected() " + other.NickName);
-
-			if (PhotonNetwork.isMasterClient) {
-
-				Debug.Log ("OnPhotonPlayerConnected is MasterClient " + PhotonNetwork.isMasterClient);
-
-				LoadArena ();
-
-			}
 
 		}
 
@@ -73,46 +101,35 @@ namespace Com.PDev.PCG{
 
 		#region Private Methods
 
-		private void LoadArena(){
-
-			if (!PhotonNetwork.isMasterClient) {
-
-				Debug.LogError ("PhotonNetwork : Load level failed - Not master Client");
-
-			}
-
-			string level_string = "game" + PhotonNetwork.room.PlayerCount + "p";
-
-			Debug.Log("PhotonNetwork : Loading Level : " + level_string);
-			PhotonNetwork.LoadLevel (level_string);
-
-
-		}
 
 		#endregion
 
-		#region MonoBehaviour CallBacks
+		#region Core Gameplay Methods
 
-		// Use this for initialization
-		void Start () {
+		public void StartTurn(){
 
-			Instance = this;
+			ServerConnection.startTurn ();
 
-			if (playerPrefab == null) {
-				Debug.LogError("<Color=Red><a>Missing</a></Color> playerPrefab Reference (Game Manager)", this);
-			} else {
-				Debug.Log("Instantiating LocalPlayer from " + Application.loadedLevelName);
-
-				// Spawn a character for the local player
-				PhotonNetwork.Instantiate(this.playerPrefab.name, new Vector3(0f,5f,0f), Quaternion.identity, 0);
-			}
 		}
-		
-		// Update is called once per frame
-		void Update () {
+
+		public void EndTurn(){
+
+
+		}
 			
+		#endregion
+
+		#region RPCS
+
+		[PunRPC]
+		void instantiateEntity(Vector3 position, Entity entity, PhotonViewID id, PhotonPlayer player){
+
+
+
 		}
 
 		#endregion
+
+	
 	}
 }

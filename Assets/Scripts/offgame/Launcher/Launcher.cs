@@ -7,6 +7,8 @@ namespace Com.PDev.PCG {
 
 		#region Public Var
 
+		public bool loadDebugRoom = false;
+
 		[Tooltip("The UI Panel to let the user enter name, connect and play")]
 		public GameObject controlPanel;
 
@@ -23,10 +25,16 @@ namespace Com.PDev.PCG {
 		// the PUN log level
 		public PhotonLogLevel Loglevel = PhotonLogLevel.Informational;
 
+		public string UserId;
+
+		public string previousRoom;
 
 		#endregion
 
 		#region Private Var
+
+		string previousRoomPlayerPrefKey = "PUN:PRC:PCG:PreviousRoom";
+
 
 		/// <summary>
 		/// Keep track of the asynchronous connection process 
@@ -98,6 +106,93 @@ namespace Com.PDev.PCG {
 
 		#region Pun Behaviour Callbacks
 
+		/*
+
+		public override void OnConnectedToMaster()
+		{
+			// after connect 
+			this.UserId = PhotonNetwork.player.UserId;
+			////Debug.Log("UserID " + this.UserId);
+
+			if (PlayerPrefs.HasKey(previousRoomPlayerPrefKey))
+			{
+				Debug.Log("getting previous room from prefs: ");
+				this.previousRoom = PlayerPrefs.GetString(previousRoomPlayerPrefKey);
+				PlayerPrefs.DeleteKey(previousRoomPlayerPrefKey); // we don't keep this, it was only for initial recovery
+			}
+
+
+			// after timeout: re-join "old" room (if one is known)
+			if (!string.IsNullOrEmpty(this.previousRoom))
+			{
+				Debug.Log("ReJoining previous room: " + this.previousRoom);
+				PhotonNetwork.ReJoinRoom(this.previousRoom);
+				this.previousRoom = null;       // we only will try to re-join once. if this fails, we will get into a random/new room
+			}
+			else
+			{
+				// else: join a random room
+				PhotonNetwork.JoinRandomRoom();
+			}
+		}
+
+		public override void OnJoinedLobby()
+		{
+			OnConnectedToMaster(); // this way, it does not matter if we join a lobby or not
+		}
+
+		public override void OnPhotonRandomJoinFailed(object[] codeAndMsg)
+		{
+			Debug.Log("OnPhotonRandomJoinFailed");
+			PhotonNetwork.CreateRoom(null, new RoomOptions() { MaxPlayers = MaxPlayersPerRoom, PlayerTtl = 20000 }, null);
+		}
+
+		public override void OnJoinedRoom()
+		{
+			Debug.Log("Joined room: " + PhotonNetwork.room.Name);
+			this.previousRoom = PhotonNetwork.room.Name;
+			PlayerPrefs.SetString(previousRoomPlayerPrefKey,this.previousRoom);
+
+			if (PhotonNetwork.room.PlayerCount == MaxPlayersPerRoom) {
+
+				//Debug.Log("We Load the 'game2p' scene");
+
+				PhotonNetwork.LoadLevel ("game" + MaxPlayersPerRoom + "p");
+
+			} else if (loadDebugRoom == true) {
+			
+				PhotonNetwork.LoadLevel ("gameTest");
+			
+			}
+
+		}
+
+		public override void OnPhotonJoinRoomFailed(object[] codeAndMsg)
+		{
+			Debug.Log("OnPhotonJoinRoomFailed");
+			this.previousRoom = null;
+			PlayerPrefs.DeleteKey(previousRoomPlayerPrefKey);
+		}
+
+		public override void OnConnectionFail(DisconnectCause cause)
+		{
+			Debug.Log("Disconnected due to: " + cause + ". this.previousRoom: " + this.previousRoom);
+		}
+
+		public override void OnPhotonPlayerActivityChanged(PhotonPlayer otherPlayer)
+		{
+			Debug.Log("OnPhotonPlayerActivityChanged() for "+otherPlayer.NickName+" IsInactive: "+otherPlayer.IsInactive);
+		}
+
+		public override void OnDisconnectedFromPhoton(){
+
+			SetProgressViewVisible (false);
+
+			Debug.LogWarning("PCG/Launcher: OnDisconnectedFromPhoton() was called by PUN");
+
+		}
+		*/
+
 		public override void OnConnectedToMaster(){
 
 			Debug.Log ("PCG/Launcher: OnConnectedToMaster() was called by PUN");
@@ -127,12 +222,16 @@ namespace Com.PDev.PCG {
 		{
 			Debug.Log("DemoAnimator/Launcher: OnJoinedRoom() called by PUN. Now this client is in a room.");
 
-			// #Critical
-			if (PhotonNetwork.room.PlayerCount == 1) {
+			// #Critical Only load the game when the room is full
+			if (PhotonNetwork.room.PlayerCount == MaxPlayersPerRoom) {
 
-				Debug.Log("We Load the 'game1p'");
+				//Debug.Log("We Load the 'game2p' scene");
 
-				PhotonNetwork.LoadLevel ("game1p");
+				PhotonNetwork.LoadLevel ("game" + MaxPlayersPerRoom + "p");
+
+			} else if (loadDebugRoom == true) {
+
+				PhotonNetwork.LoadLevel ("gameTest");
 
 			}
 				

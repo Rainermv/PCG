@@ -51,11 +51,13 @@ namespace Com.PDev.PCG{
 
 		private void ProcessInputs(){
 
+			/*
 			if (Input.GetButtonDown("Fire1")){
 
 				InputLeftClick (Input.mousePosition);
 
 			}
+			*/
 
 		}
 

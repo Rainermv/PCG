@@ -103,6 +103,8 @@ public class RpsDemoConnect : PunBehaviour
         this.previousRoom = PhotonNetwork.room.Name;
 		PlayerPrefs.SetString(previousRoomPlayerPrefKey,this.previousRoom);
 
+
+
     }
 
     public override void OnPhotonJoinRoomFailed(object[] codeAndMsg)
