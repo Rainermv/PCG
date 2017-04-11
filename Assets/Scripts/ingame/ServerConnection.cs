@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using Photon;
 using UnityEngine;
 using UnityEngine.UI;
@@ -25,21 +26,34 @@ namespace Com.PDev.PCG
 
 		static public ServerConnection instance;
 
-		TurnManager turn_manager = new TurnManager();
+        PhotonView managerPhotonView;
+
+        GameServer server;
 
 		#endregion
 
 		#region public methods
 
-		public void Init(){
+		public void Init(PhotonView photon_view){
 
-			//Hashtable proprieties = new Hashtable ();
+            managerPhotonView = photon_view;
 
-			//proprieties.Add ("turn_number", "1");
+            PhotonNetwork.OnEventCall += this.OnEvent;
 
-			//PhotonNetwork.room.SetCustomProperties ();
+            if (PhotonNetwork.player.IsMasterClient)
+            {
+                server = new GameServer(photon_view);
+                
 
-		}
+            }
+
+                //Hashtable proprieties = new Hashtable ();
+
+                //proprieties.Add ("turn_number", "1");
+
+                //PhotonNetwork.room.SetCustomProperties ();
+
+        }
 
 		public PlayerData getPlayerData(PhotonPlayer player){
 
@@ -59,7 +73,40 @@ namespace Com.PDev.PCG
 
 		}
 
-		#endregion
-	}
+        public void SendEvent(int code)
+        {
+            Debug.Log("SENDING EVENT TO SERVER");
+            byte evCode = 0;    // my event 0. could be used as "group units"
+            byte[] content = new byte[] { 1, 2, 5, 10 };    // e.g. selected unity 1,2,5 and 10
+            bool reliable = true;
+
+            RaiseEventOptions options = new RaiseEventOptions();
+            options.Receivers = ReceiverGroup.All;
+
+            PhotonNetwork.RaiseEvent(evCode, content, reliable, options);
+
+        }
+
+        private void OnEvent(byte eventcode, object content, int senderid)
+        {
+            if (eventcode == 1)
+            {
+                Debug.Log("CLIENT - RECEIVED EVENT FROM ID:" + senderid);
+            }
+
+        }
+
+        // SERVER - VALIDATE ACTION, UPDATE STATE, SAVE ON ACTION BUFFER
+        internal void SendAction(string actionKey, object arg)
+        {
+            if (PhotonNetwork.player.IsMasterClient)
+            {
+                server.RunAction(actionKey, arg);
+
+            }
+        }
+
+        #endregion
+    }
 }
 

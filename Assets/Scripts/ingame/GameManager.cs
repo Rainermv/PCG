@@ -4,6 +4,7 @@ using Photon;
 using UnityEngine;
 using UnityEngine.UI;
 using Random = UnityEngine.Random;
+using Object = System.Object;
 
 using UnityEngine.SceneManagement;
 
@@ -14,6 +15,8 @@ namespace Com.PDev.PCG{
 		#region Public Proprieties
 
 		static public GameManager Instance;
+
+        public PhotonView photon_view;
 
 		#endregion
 
@@ -31,17 +34,24 @@ namespace Com.PDev.PCG{
 
 		public int player_number = 0;
 
-		#region MonoBehaviour CallBacks
+        #region MonoBehaviour CallBacks
 
-		// Use this for initialization
-		void Start () {
+        void Awake()
+        {
+           
+        }
 
-			Instance = this;
+        // Use this for initialization
+        void Start () {
+
+            photon_view = this.GetComponent<PhotonView>();
+
+            Instance = this;
 
 			local_player = ServerConnection.Instance.getPlayerData (PhotonNetwork.player);
 			ruleset = ServerConnection.Instance.getRulesetData ();
 
-
+            ServerConnection.instance.Init(photon_view);
 
 			/*
 			if (playerPrefab == null) {
@@ -108,7 +118,7 @@ namespace Com.PDev.PCG{
 
 		public void StartTurn(){
 
-			ServerConnection.startTurn ();
+			//ServerConnection.startTurn ();
 
 		}
 
@@ -116,20 +126,35 @@ namespace Com.PDev.PCG{
 
 
 		}
-			
-		#endregion
 
-		#region RPCS
+        public void SendAction()
+        {
+           
+            ServerConnection.instance.SendEvent(0);
+        }
 
-		[PunRPC]
-		void instantiateEntity(Vector3 position, Entity entity, PhotonViewID id, PhotonPlayer player){
+        #endregion
 
+        #region RPCs
 
+        [PunRPC]
+		void SendActionRPC(string actionKey, Object arg){
+
+            ServerConnection.instance.SendAction(actionKey, arg);
 
 		}
 
-		#endregion
+        [PunRPC]
+        void UpdateState(int gameId)
+        {
+           // Entity entity = ServerConnection.instance.GetState(gameId);
 
-	
-	}
+           // Debug.Log(entity.debug_value);
+
+        }
+
+        #endregion
+
+
+    }
 }

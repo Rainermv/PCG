@@ -18,6 +18,8 @@ namespace Com.PDev.PCG
 			}
 		}
 
+        public int debug_value = 0;
+
 		#endregion
 
 		#region private variables
@@ -56,6 +58,22 @@ namespace Com.PDev.PCG
 				Debug.LogError("Entity " +  GameId + ": can't add child, max number of children reached");
 			}
 		}
+
+        public Entity findChild(int id)
+        {
+
+            foreach (Entity child in children)
+            {
+                if (child.game_id == id)
+                {
+                    return child;
+                }
+
+                child.findChild(id);
+            }
+
+            return null;
+        }
 
 		#endregion
 	}

@@ -1,32 +1,33 @@
 Initialize engine version: 5.6.0f3 (497a0f351392)
 GfxDevice: creating device client; threaded=1
+d3d11: D3D_FEATURE_LEVEL_11_1 not-recognized (only 11.0 runtime installed?)
 Direct3D:
-    Version:  Direct3D 11.0 [level 10.0]
-    Renderer: NVIDIA GeForce 9800 GT   (ID=0x614)
-    Vendor:   NVIDIA
-    VRAM:     999 MB
-    Driver:   21.21.13.4201
+    Version:  Direct3D 11.0 [level 11.0]
+    Renderer: Intel(R) HD Graphics (ID=0x152)
+    Vendor:   Intel
+    VRAM:     512 MB
+    Driver:   9.17.10.4229
 Begin MonoManager ReloadAssembly
-Platform assembly: C:\Users\Rainervieira\projects\PCG\builds\testing0.1_Data\Managed\UnityEngine.dll (this message is harmless)
-Loading C:\Users\Rainervieira\projects\PCG\builds\testing0.1_Data\Managed\UnityEngine.dll into Unity Child Domain
-Platform assembly: C:\Users\Rainervieira\projects\PCG\builds\testing0.1_Data\Managed\Assembly-CSharp-firstpass.dll (this message is harmless)
-Loading C:\Users\Rainervieira\projects\PCG\builds\testing0.1_Data\Managed\Assembly-CSharp-firstpass.dll into Unity Child Domain
-Platform assembly: C:\Users\Rainervieira\projects\PCG\builds\testing0.1_Data\Managed\Assembly-CSharp.dll (this message is harmless)
-Loading C:\Users\Rainervieira\projects\PCG\builds\testing0.1_Data\Managed\Assembly-CSharp.dll into Unity Child Domain
-Platform assembly: C:\Users\Rainervieira\projects\PCG\builds\testing0.1_Data\Managed\UnityEngine.UI.dll (this message is harmless)
-Loading C:\Users\Rainervieira\projects\PCG\builds\testing0.1_Data\Managed\UnityEngine.UI.dll into Unity Child Domain
-Platform assembly: C:\Users\Rainervieira\projects\PCG\builds\testing0.1_Data\Managed\UnityEngine.Networking.dll (this message is harmless)
-Loading C:\Users\Rainervieira\projects\PCG\builds\testing0.1_Data\Managed\UnityEngine.Networking.dll into Unity Child Domain
-Platform assembly: C:\Users\Rainervieira\projects\PCG\builds\testing0.1_Data\Managed\Photon3Unity3D.dll (this message is harmless)
-Loading C:\Users\Rainervieira\projects\PCG\builds\testing0.1_Data\Managed\Photon3Unity3D.dll into Unity Child Domain
-- Completed reload, in  0.197 seconds
-Platform assembly: C:\Users\Rainervieira\projects\PCG\builds\testing0.1_Data\Managed\System.Core.dll (this message is harmless)
-Platform assembly: C:\Users\Rainervieira\projects\PCG\builds\testing0.1_Data\Managed\System.dll (this message is harmless)
-desktop: 1360x768 60Hz; virtual: 2720x768 at 0,0
+Platform assembly: C:\Development\Unity\PCG\builds\testing0.1_Data\Managed\UnityEngine.dll (this message is harmless)
+Loading C:\Development\Unity\PCG\builds\testing0.1_Data\Managed\UnityEngine.dll into Unity Child Domain
+Platform assembly: C:\Development\Unity\PCG\builds\testing0.1_Data\Managed\Assembly-CSharp-firstpass.dll (this message is harmless)
+Loading C:\Development\Unity\PCG\builds\testing0.1_Data\Managed\Assembly-CSharp-firstpass.dll into Unity Child Domain
+Platform assembly: C:\Development\Unity\PCG\builds\testing0.1_Data\Managed\Assembly-CSharp.dll (this message is harmless)
+Loading C:\Development\Unity\PCG\builds\testing0.1_Data\Managed\Assembly-CSharp.dll into Unity Child Domain
+Platform assembly: C:\Development\Unity\PCG\builds\testing0.1_Data\Managed\UnityEngine.UI.dll (this message is harmless)
+Loading C:\Development\Unity\PCG\builds\testing0.1_Data\Managed\UnityEngine.UI.dll into Unity Child Domain
+Platform assembly: C:\Development\Unity\PCG\builds\testing0.1_Data\Managed\UnityEngine.Networking.dll (this message is harmless)
+Loading C:\Development\Unity\PCG\builds\testing0.1_Data\Managed\UnityEngine.Networking.dll into Unity Child Domain
+Platform assembly: C:\Development\Unity\PCG\builds\testing0.1_Data\Managed\Photon3Unity3D.dll (this message is harmless)
+Loading C:\Development\Unity\PCG\builds\testing0.1_Data\Managed\Photon3Unity3D.dll into Unity Child Domain
+- Completed reload, in  0.023 seconds
+Platform assembly: C:\Development\Unity\PCG\builds\testing0.1_Data\Managed\System.Core.dll (this message is harmless)
+Platform assembly: C:\Development\Unity\PCG\builds\testing0.1_Data\Managed\System.dll (this message is harmless)
+desktop: 1366x768 60Hz; virtual: 1366x768 at 0,0
 <RI> Initializing input.
 <RI> Input initialized.
 <RI> Initialized touch support.
-UnloadTime: 26.791779 ms
+UnloadTime: 1.116872 ms
 Best region found in PlayerPrefs. Connecting to: sa
  
 (Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
@@ -43,7 +44,7 @@ OperationResponse 230: ReturnCode: 0.
  
 (Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
 
-Received your UserID from server. Updating local value to: Belliard
+Received your UserID from server. Updating local value to: gvgh
  
 (Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
 
@@ -67,6 +68,10 @@ OperationResponse 230: ReturnCode: 0.
  
 (Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
 
+PCG/Launcher: OnConnectedToMaster() was called by PUN
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
 OperationResponse 225: ReturnCode: 0.
  
 (Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
@@ -95,558 +100,40 @@ OnEvent: Event 255.
  
 (Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
 
-Joined room: b173696c-c63b-44bc-9f0b-3a6f549d8d05
+DemoAnimator/Launcher: OnJoinedRoom() called by PUN. Now this client is in a room.
  
 (Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
 
 Unloading 6 Unused Serialized files (Serialized files now loaded: 0)
-UnloadTime: 2.588685 ms
+UnloadTime: 1.738397 ms
 
-Unloading 5 unused Assets to reduce memory usage. Loaded Objects now: 427.
-Total: 0.377101 ms (FindLiveObjects: 0.042225 ms CreateObjectMapping: 0.023458 ms MarkObjects: 0.294701 ms  DeleteObjects: 0.015541 ms)
+Unloading 5 unused Assets to reduce memory usage. Loaded Objects now: 445.
+Total: 0.381245 ms (FindLiveObjects: 0.041958 ms CreateObjectMapping: 0.034411 ms MarkObjects: 0.290386 ms  DeleteObjects: 0.013583 ms)
 
-OperationResponse 254: ReturnCode: 0.
+SENDING EVENT TO SERVER
  
 (Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
 
-OnStatusChanged: Disconnect current State: DisconnectingFromGameserver
+SENDING EVENT TO SERVER
  
 (Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
 
-Unloading 2 Unused Serialized files (Serialized files now loaded: 0)
-UnloadTime: 0.408184 ms
-
-Unloading 5 unused Assets to reduce memory usage. Loaded Objects now: 438.
-Total: 0.337807 ms (FindLiveObjects: 0.029323 ms CreateObjectMapping: 0.018473 ms MarkObjects: 0.271536 ms  DeleteObjects: 0.017887 ms)
-
-OnStatusChanged: Connect current State: ConnectingToMasterserver
- 
-(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
-
-OnStatusChanged: EncryptionEstablished current State: Authenticating
- 
-(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
-
-OnEvent: Event 226.
- 
-(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
-
-OperationResponse 230: ReturnCode: 0.
- 
-(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
-
-getting previous room from prefs: 
- 
-(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
-
-ReJoining previous room: b173696c-c63b-44bc-9f0b-3a6f549d8d05
- 
-(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
-
-OperationResponse 226: ReturnCode: 0.
- 
-(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
-
-OnStatusChanged: Disconnect current State: DisconnectingFromMasterserver
- 
-(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
-
-OnStatusChanged: Connect current State: ConnectingToGameserver
- 
-(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
-
-OnStatusChanged: EncryptionEstablished current State: ConnectedToGameserver
- 
-(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
-
-OperationResponse 230: ReturnCode: 0.
- 
-(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
-
-Operation failed: OperationResponse 226: ReturnCode: 32748 (User does not exist in this game). Parameters: {} Server: GameServer
- 
-(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
-
-Join failed on GameServer. Changing back to MasterServer. Msg: User does not exist in this game
- 
-(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
-
-OnPhotonJoinRoomFailed
- 
-(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
-
-OnStatusChanged: Disconnect current State: DisconnectingFromGameserver
- 
-(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
-
-OnStatusChanged: Connect current State: ConnectingToMasterserver
- 
-(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
-
-OnStatusChanged: EncryptionEstablished current State: Authenticating
- 
-(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
-
-OnEvent: Event 226.
- 
-(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
-
-OperationResponse 230: ReturnCode: 0.
- 
-(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
-
-OperationResponse 225: ReturnCode: 0.
- 
-(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
-
-OnStatusChanged: Disconnect current State: DisconnectingFromMasterserver
- 
-(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
-
-OnStatusChanged: Connect current State: ConnectingToGameserver
- 
-(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
-
-OnStatusChanged: EncryptionEstablished current State: ConnectedToGameserver
- 
-(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
-
-OperationResponse 230: ReturnCode: 0.
- 
-(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
-
-OperationResponse 226: ReturnCode: 0.
- 
-(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
-
-OnEvent: Event 255.
- 
-(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
-
-Joined room: b173696c-c63b-44bc-9f0b-3a6f549d8d05
- 
-(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
-
-Unloading 5 Unused Serialized files (Serialized files now loaded: 0)
-UnloadTime: 0.496448 ms
-
-Unloading 3 unused Assets to reduce memory usage. Loaded Objects now: 427.
-Total: 0.414048 ms (FindLiveObjects: 0.055128 ms CreateObjectMapping: 0.036361 ms MarkObjects: 0.305551 ms  DeleteObjects: 0.015834 ms)
-
-OperationResponse 254: ReturnCode: 0.
- 
-(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
-
-OnStatusChanged: Disconnect current State: DisconnectingFromGameserver
- 
-(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
-
-Unloading 2 Unused Serialized files (Serialized files now loaded: 0)
-UnloadTime: 0.565065 ms
-
-Unloading 5 unused Assets to reduce memory usage. Loaded Objects now: 438.
-Total: 0.356574 ms (FindLiveObjects: 0.035774 ms CreateObjectMapping: 0.034895 ms MarkObjects: 0.269190 ms  DeleteObjects: 0.015834 ms)
-
-OnStatusChanged: Connect current State: ConnectingToMasterserver
- 
-(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
-
-OnStatusChanged: EncryptionEstablished current State: Authenticating
- 
-(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
-
-OnEvent: Event 226.
- 
-(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
-
-OperationResponse 230: ReturnCode: 0.
- 
-(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
-
-getting previous room from prefs: 
- 
-(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
-
-ReJoining previous room: b173696c-c63b-44bc-9f0b-3a6f549d8d05
- 
-(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
-
-OperationResponse 226: ReturnCode: 0.
- 
-(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
-
-OnStatusChanged: Disconnect current State: DisconnectingFromMasterserver
- 
-(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
-
-OnStatusChanged: Connect current State: ConnectingToGameserver
- 
-(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
-
-OnStatusChanged: EncryptionEstablished current State: ConnectedToGameserver
- 
-(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
-
-OperationResponse 230: ReturnCode: 0.
- 
-(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
-
-Operation failed: OperationResponse 226: ReturnCode: 32748 (User does not exist in this game). Parameters: {} Server: GameServer
- 
-(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
-
-Join failed on GameServer. Changing back to MasterServer. Msg: User does not exist in this game
- 
-(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
-
-OnPhotonJoinRoomFailed
- 
-(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
-
-OnStatusChanged: Disconnect current State: DisconnectingFromGameserver
- 
-(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
-
-OnStatusChanged: Connect current State: ConnectingToMasterserver
- 
-(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
-
-OnStatusChanged: EncryptionEstablished current State: Authenticating
- 
-(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
-
-OnEvent: Event 226.
- 
-(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
-
-OperationResponse 230: ReturnCode: 0.
- 
-(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
-
-OperationResponse 225: ReturnCode: 0.
- 
-(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
-
-OnStatusChanged: Disconnect current State: DisconnectingFromMasterserver
- 
-(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
-
-OnStatusChanged: Connect current State: ConnectingToGameserver
- 
-(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
-
-OnStatusChanged: EncryptionEstablished current State: ConnectedToGameserver
- 
-(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
-
-OperationResponse 230: ReturnCode: 0.
- 
-(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
-
-OperationResponse 226: ReturnCode: 0.
- 
-(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
-
-OnEvent: Event 255.
- 
-(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
-
-Joined room: b173696c-c63b-44bc-9f0b-3a6f549d8d05
- 
-(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
-
-Unloading 5 Unused Serialized files (Serialized files now loaded: 0)
-UnloadTime: 0.487944 ms
-
-Unloading 3 unused Assets to reduce memory usage. Loaded Objects now: 427.
-Total: 0.350416 ms (FindLiveObjects: 0.051902 ms CreateObjectMapping: 0.047210 ms MarkObjects: 0.237814 ms  DeleteObjects: 0.012609 ms)
-
-OperationResponse 254: ReturnCode: 0.
- 
-(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
-
-OnStatusChanged: Disconnect current State: DisconnectingFromGameserver
- 
-(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
-
-Unloading 2 Unused Serialized files (Serialized files now loaded: 0)
-UnloadTime: 0.415808 ms
-
-Unloading 5 unused Assets to reduce memory usage. Loaded Objects now: 438.
-Total: 0.366251 ms (FindLiveObjects: 0.037240 ms CreateObjectMapping: 0.035188 ms MarkObjects: 0.276521 ms  DeleteObjects: 0.016714 ms)
-
-OnStatusChanged: Connect current State: ConnectingToMasterserver
- 
-(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
-
-OnStatusChanged: EncryptionEstablished current State: Authenticating
- 
-(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
-
-OnEvent: Event 226.
- 
-(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
-
-OperationResponse 230: ReturnCode: 0.
- 
-(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
-
-getting previous room from prefs: 
- 
-(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
-
-ReJoining previous room: b173696c-c63b-44bc-9f0b-3a6f549d8d05
- 
-(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
-
-OperationResponse 226: ReturnCode: 0.
- 
-(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
-
-OnStatusChanged: Disconnect current State: DisconnectingFromMasterserver
- 
-(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
-
-OnStatusChanged: Connect current State: ConnectingToGameserver
- 
-(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
-
-OnStatusChanged: EncryptionEstablished current State: ConnectedToGameserver
- 
-(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
-
-OperationResponse 230: ReturnCode: 0.
- 
-(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
-
-Operation failed: OperationResponse 226: ReturnCode: 32748 (User does not exist in this game). Parameters: {} Server: GameServer
- 
-(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
-
-Join failed on GameServer. Changing back to MasterServer. Msg: User does not exist in this game
- 
-(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
-
-OnPhotonJoinRoomFailed
- 
-(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
-
-OnStatusChanged: Disconnect current State: DisconnectingFromGameserver
- 
-(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
-
-OnStatusChanged: Connect current State: ConnectingToMasterserver
- 
-(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
-
-OnStatusChanged: EncryptionEstablished current State: Authenticating
- 
-(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
-
-OnEvent: Event 226.
- 
-(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
-
-OperationResponse 230: ReturnCode: 0.
- 
-(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
-
-OperationResponse 225: ReturnCode: 0.
- 
-(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
-
-OnStatusChanged: Disconnect current State: DisconnectingFromMasterserver
- 
-(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
-
-OnStatusChanged: Connect current State: ConnectingToGameserver
- 
-(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
-
-OnStatusChanged: EncryptionEstablished current State: ConnectedToGameserver
- 
-(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
-
-OperationResponse 230: ReturnCode: 0.
- 
-(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
-
-OperationResponse 226: ReturnCode: 0.
- 
-(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
-
-OnEvent: Event 255.
- 
-(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
-
-Joined room: b173696c-c63b-44bc-9f0b-3a6f549d8d05
- 
-(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
-
-Unloading 5 Unused Serialized files (Serialized files now loaded: 0)
-UnloadTime: 0.587058 ms
-
-Unloading 3 unused Assets to reduce memory usage. Loaded Objects now: 427.
-Total: 0.492342 ms (FindLiveObjects: 0.036947 ms CreateObjectMapping: 0.034601 ms MarkObjects: 0.397334 ms  DeleteObjects: 0.022579 ms)
-
-OnEvent: Event 254.
- 
-(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
-
-HandleEventLeave for player ID: 1 evLeave: Event 254: {(Byte)252=(Int32[])System.Int32[], (Byte)233=(Boolean)True, (Byte)203=(Int32)5, (Byte)254=(Int32)1}
- 
-(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
-
-OnEvent: Event 254.
- 
-(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
-
-HandleEventLeave for player ID: 1 evLeave: Event 254: {(Byte)252=(Int32[])System.Int32[], (Byte)254=(Int32)1}
- 
-(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
-
-OnPhotonPlayerDisconnected() Rainer
- 
-(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
-
-OperationResponse 254: ReturnCode: 0.
- 
-(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
-
-OnStatusChanged: Disconnect current State: DisconnectingFromGameserver
- 
-(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
-
-Unloading 2 Unused Serialized files (Serialized files now loaded: 0)
-UnloadTime: 0.561253 ms
-
-Unloading 5 unused Assets to reduce memory usage. Loaded Objects now: 438.
-Total: 0.560960 ms (FindLiveObjects: 0.031962 ms CreateObjectMapping: 0.036068 ms MarkObjects: 0.465071 ms  DeleteObjects: 0.026977 ms)
-
-OnStatusChanged: Connect current State: ConnectingToMasterserver
- 
-(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
-
-OnStatusChanged: EncryptionEstablished current State: Authenticating
- 
-(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
-
-OnEvent: Event 226.
- 
-(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
-
-OperationResponse 230: ReturnCode: 0.
- 
-(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
-
-getting previous room from prefs: 
- 
-(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
-
-ReJoining previous room: b173696c-c63b-44bc-9f0b-3a6f549d8d05
- 
-(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
-
-OperationResponse 226: ReturnCode: 0.
- 
-(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
-
-OnStatusChanged: Disconnect current State: DisconnectingFromMasterserver
- 
-(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
-
-OnStatusChanged: Connect current State: ConnectingToGameserver
- 
-(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
-
-OnStatusChanged: EncryptionEstablished current State: ConnectedToGameserver
- 
-(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
-
-OperationResponse 230: ReturnCode: 0.
- 
-(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
-
-Operation failed: OperationResponse 226: ReturnCode: 32758 (Game does not exists). Parameters: {} Server: GameServer
- 
-(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
-
-Join failed on GameServer. Changing back to MasterServer. Msg: Game does not exists
- 
-(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
-
-Most likely the game became empty during the switch to GameServer.
- 
-(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
-
-OnPhotonJoinRoomFailed
- 
-(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
-
-OnStatusChanged: Disconnect current State: DisconnectingFromGameserver
- 
-(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
-
-OnStatusChanged: Connect current State: ConnectingToMasterserver
- 
-(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
-
-OnStatusChanged: EncryptionEstablished current State: Authenticating
- 
-(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
-
-OnEvent: Event 226.
- 
-(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
-
-OperationResponse 230: ReturnCode: 0.
- 
-(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
-
-Operation failed: OperationResponse 225: ReturnCode: 32760 (No match found). Parameters: {}
- 
-(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
-
-OnPhotonRandomJoinFailed
- 
-(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
-
-OperationResponse 227: ReturnCode: 0.
- 
-(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
-
-OnStatusChanged: Disconnect current State: DisconnectingFromMasterserver
- 
-(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
-
-OnStatusChanged: Connect current State: ConnectingToGameserver
- 
-(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
-
-OnStatusChanged: EncryptionEstablished current State: ConnectedToGameserver
- 
-(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
-
-OperationResponse 230: ReturnCode: 0.
- 
-(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
-
-OperationResponse 227: ReturnCode: 0.
+SENDING EVENT TO SERVER
  
 (Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
 
-OnEvent: Event 255.
+SENDING EVENT TO SERVER
  
 (Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
 
-Joined room: db0fd815-1866-4869-8d88-4373f5d81644
+SENDING EVENT TO SERVER
  
 (Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
 
-OperationResponse 252: ReturnCode: 0.
+SENDING EVENT TO SERVER
  
 (Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
 
 Setting up 2 worker threads for Enlighten.
-  Thread -> id: 2bcc -> priority: 1 
-  Thread -> id: 16e4 -> priority: 1 
+  Thread -> id: 1544 -> priority: 1 
+  Thread -> id: ad4 -> priority: 1 
