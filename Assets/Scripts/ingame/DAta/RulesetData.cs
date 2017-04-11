@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Com.PDev.PCG
+namespace Com.PDev.PCG.Data
 {
 	public class RulesetData
 	{

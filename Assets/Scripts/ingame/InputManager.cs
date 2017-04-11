@@ -2,9 +2,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace Com.PDev.PCG{
+namespace Com.PDev.PCG.Client {
 	
-	public class PlayerManager : Photon.PunBehaviour, IPunObservable {
+	public class InputManager : Photon.PunBehaviour, IPunObservable {
 
 		#region Public Proprieties
 
@@ -22,7 +22,7 @@ namespace Com.PDev.PCG{
 
 			if (photonView.isMine) {
 
-				PlayerManager.LocalPlayerInstance = this.gameObject;
+				InputManager.LocalPlayerInstance = this.gameObject;
 
 			}
 
@@ -37,7 +37,7 @@ namespace Com.PDev.PCG{
 
 			if (Health <= 0) {
 
-				GameManager.Instance.LeaveRoom ();
+				ClientManager.Instance.LeaveRoom ();
 			}
 
 

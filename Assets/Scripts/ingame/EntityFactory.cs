@@ -2,7 +2,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace Com.PDev.PCG
+using Com.PDev.PCG.Data;
+
+namespace Com.PDev.PCG.Client
 {
 	public class EntityFactory
 	{

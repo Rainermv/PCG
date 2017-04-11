@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace Com.PDev.PCG
+namespace Com.PDev.PCG.Data
 {
 	public class Entity
 	{
@@ -30,8 +30,9 @@ namespace Com.PDev.PCG
 
 		Entity parent = null;
 
-		List<Entity> children = new List<Entity>();
-		List<int> visibility = new List<int>(); // TODO turn into enum
+        Dictionary<int, Entity> children = new Dictionary<int, Entity>();
+        Dictionary<int, Attribute> attributes = new Dictionary<int, Attribute>();
+        List<int> visibility = new List<int>(); // TODO turn into enum
 
 		#endregion
 
@@ -51,7 +52,7 @@ namespace Com.PDev.PCG
 
 			if (children.Count < max_children) {
 
-				this.children.Add (entity);
+				this.children.Add (entity.game_id, entity);
 				entity.parent = this;
 
 			} else {
@@ -61,15 +62,19 @@ namespace Com.PDev.PCG
 
         public Entity findChild(int id)
         {
-
-            foreach (Entity child in children)
+            Entity child = null;
+            if (children.TryGetValue(id, out child))
             {
-                if (child.game_id == id)
+                return child;
+            }
+
+            foreach (int key in children.Keys)
+            {
+                child = children[key].findChild(id);
+                if (child != null )
                 {
                     return child;
                 }
-
-                child.findChild(id);
             }
 
             return null;

@@ -6,15 +6,17 @@ using UnityEngine.UI;
 using Random = UnityEngine.Random;
 using Object = System.Object;
 
+using Com.PDev.PCG.Data;
+
 using UnityEngine.SceneManagement;
 
-namespace Com.PDev.PCG{
+namespace Com.PDev.PCG.Client{
 	
-	public class GameManager : Photon.PunBehaviour {
+	public class ClientManager : Photon.PunBehaviour {
 
 		#region Public Proprieties
 
-		static public GameManager Instance;
+		static public ClientManager Instance;
 
         public PhotonView photon_view;
 
@@ -25,11 +27,10 @@ namespace Com.PDev.PCG{
 		[Tooltip("The prefab to use for representing the player")]
 		public GameObject playerPrefab;
 
-		#endregion
+        #endregion
 
-		private PunTurnManager turnManager;
-
-		private PlayerData local_player;
+       
+        private PlayerData local_player;
 		private RulesetData ruleset;
 
 		public int player_number = 0;
@@ -53,6 +54,8 @@ namespace Com.PDev.PCG{
 
             ServerConnection.instance.Init(photon_view);
 
+            this.TriggerAction("set_ready");
+
 			/*
 			if (playerPrefab == null) {
 				Debug.LogError("<Color=Red><a>Missing</a></Color> playerPrefab Reference (Game Manager)", this);
@@ -63,8 +66,6 @@ namespace Com.PDev.PCG{
 				PhotonNetwork.Instantiate(this.playerPrefab.name, new Vector3(0f,0f,0f), Quaternion.identity, 0);
 			}
 			*/
-
-			this.StartTurn ();
 		}
 
 		// Update is called once per frame
@@ -96,42 +97,33 @@ namespace Com.PDev.PCG{
 			SceneManager.LoadScene (0);
 
 		}
-			
-		#endregion
 
-		#region Public Methods
+        #endregion
 
-		public void LeaveRoom(){
+        #region Public Methods
+
+        public void TriggerAction(string action)
+        {
+            ServerConnection.instance.TriggerAction(action);
+        }
+
+        public void LeaveRoom(){
 
 			PhotonNetwork.LeaveRoom ();
 
 		}
 
-		#endregion
+        #endregion
 
-		#region Private Methods
-
-
-		#endregion
-
-		#region Core Gameplay Methods
-
-		public void StartTurn(){
-
-			//ServerConnection.startTurn ();
-
-		}
-
-		public void EndTurn(){
+        #region Private Methods
 
 
-		}
+        #endregion
 
-        public void SendAction()
-        {
-           
-            ServerConnection.instance.SendEvent(0);
-        }
+        #region events
+
+       
+
 
         #endregion
 
@@ -140,7 +132,7 @@ namespace Com.PDev.PCG{
         [PunRPC]
 		void SendActionRPC(string actionKey, Object arg){
 
-            ServerConnection.instance.SendAction(actionKey, arg);
+            //ServerConnection.instance.SendAction(actionKey, arg);
 
 		}
 

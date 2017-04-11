@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace Com.PDev.PCG
+namespace Com.PDev.PCG.Data
 {
 	public enum EntityType
 	{

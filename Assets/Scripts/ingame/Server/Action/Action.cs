@@ -2,7 +2,9 @@
 
 using Object = System.Object;
 
-namespace Com.PDev.PCG
+using Com.PDev.PCG.Data;
+
+namespace Com.PDev.PCG.Actions
 {
     public class Action
     {

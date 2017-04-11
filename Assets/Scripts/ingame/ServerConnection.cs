@@ -5,7 +5,10 @@ using UnityEngine;
 using UnityEngine.UI;
 using Random = UnityEngine.Random;
 
-namespace Com.PDev.PCG
+using Com.PDev.PCG.Data;
+using Com.PDev.PCG.Server;
+
+namespace Com.PDev.PCG.Client
 {
 	public class ServerConnection
 	{
@@ -25,26 +28,24 @@ namespace Com.PDev.PCG
 		#region private variables
 
 		static public ServerConnection instance;
-
-        PhotonView managerPhotonView;
-
+        PhotonView clientPhotonView;
         GameServer server;
+        private ActionTriggerDictionary triggerDictionary = new ActionTriggerDictionary();
 
-		#endregion
+        #endregion
 
-		#region public methods
+        #region public methods
 
-		public void Init(PhotonView photon_view){
+        public void Init(PhotonView photon_view){
 
-            managerPhotonView = photon_view;
+            clientPhotonView = photon_view;
 
             PhotonNetwork.OnEventCall += this.OnEvent;
 
             if (PhotonNetwork.player.IsMasterClient)
             {
-                server = new GameServer(photon_view);
-                
-
+                server = GameServer.instance;
+               
             }
 
                 //Hashtable proprieties = new Hashtable ();
@@ -73,19 +74,28 @@ namespace Com.PDev.PCG
 
 		}
 
-        public void SendEvent(int code)
+        public void TriggerAction(string actionTrigger, object[] parameters = null)
         {
-            Debug.Log("SENDING EVENT TO SERVER");
+            clientPhotonView.RPC(actionTrigger, PhotonTargets.MasterClient, parameters);
+            /*
+            Debug.Log("SENDING EVENT TO SERVER: " + actionTrigger);
             byte evCode = 0;    // my event 0. could be used as "group units"
-            byte[] content = new byte[] { 1, 2, 5, 10 };    // e.g. selected unity 1,2,5 and 10
+
+            ushort actionCode = triggerDictionary.GetCode(actionTrigger);
+
+            byte[] content = BitConverter.GetBytes(actionCode);
+
             bool reliable = true;
 
             RaiseEventOptions options = new RaiseEventOptions();
-            options.Receivers = ReceiverGroup.All;
+            options.Receivers = ReceiverGroup.MasterClient; // TEMP: the master client is the server for now
 
             PhotonNetwork.RaiseEvent(evCode, content, reliable, options);
+            */
 
         }
+
+        
 
         private void OnEvent(byte eventcode, object content, int senderid)
         {
@@ -96,17 +106,16 @@ namespace Com.PDev.PCG
 
         }
 
-        // SERVER - VALIDATE ACTION, UPDATE STATE, SAVE ON ACTION BUFFER
-        internal void SendAction(string actionKey, object arg)
+        #endregion
+
+        [PunRPC]
+        private void TriggerActionRPC(string actionTrigger, object[] parameters = null)
         {
             if (PhotonNetwork.player.IsMasterClient)
             {
-                server.RunAction(actionKey, arg);
-
+                server.TriggerAction(actionTrigger, parameters);
             }
         }
-
-        #endregion
     }
 }
 
