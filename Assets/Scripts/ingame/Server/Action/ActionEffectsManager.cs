@@ -44,10 +44,9 @@ namespace Com.PDev.PCG.Actions
 
         #region Effects
 
-        private void end_turn(Entity game, Object[] parameters)
+        private void end_phase(Entity game, Object[] parameters)
         {
-            //Entity game = parameters[0] as Entity;
-            // do stuff with game
+            GameServer.Instance.InvokeEndPhase();
 
         }
 

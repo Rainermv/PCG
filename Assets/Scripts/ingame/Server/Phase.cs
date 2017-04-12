@@ -6,7 +6,7 @@ using System.Text;
 
 namespace Com.PDev.PCG.Server
 {
-    class TurnPhase
+    class Phase
     {
         public string key;
         public string name;
@@ -18,7 +18,7 @@ namespace Com.PDev.PCG.Server
 
         private int count;
 
-        public TurnPhase(PhaseData phase)
+        public Phase(PhaseData phase)
         {
             this.name       = phase.name;
             this.key        = phase.key;

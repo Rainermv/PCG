@@ -75,7 +75,7 @@ namespace Com.PDev.PCG.Server
 
         }
 
-        public void EndPhase()
+        public void InvokeEndPhase()
         {
             turn_manager.NextPhase();
         }
