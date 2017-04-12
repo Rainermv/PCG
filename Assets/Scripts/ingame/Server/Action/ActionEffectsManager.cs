@@ -5,6 +5,7 @@ using System.Text;
 using System.Reflection;
 
 using Com.PDev.PCG.Data;
+using Com.PDev.PCG.Server;
 
 namespace Com.PDev.PCG.Actions
 {
@@ -43,18 +44,21 @@ namespace Com.PDev.PCG.Actions
 
         #region Effects
 
-        private void end_turn(Object[] parameters)
+        private void end_turn(Entity game, Object[] parameters)
         {
-            Entity game = parameters[0] as Entity;
+            //Entity game = parameters[0] as Entity;
             // do stuff with game
-
-
 
         }
 
-        private void set_ready(Object[] parameters)
+        private void set_ready(Entity game, Object[] parameters)
         {
             // set ready
+        }
+
+        public void testing(Entity game, Object[] parameters)
+        {
+            Logger.Log("Effects Manager","TESTING EFFECT CALLED");
         }
 
         #endregion

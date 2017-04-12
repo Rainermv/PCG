@@ -30,7 +30,7 @@ namespace Com.PDev.PCG.Client
 		static public ServerConnection instance;
         PhotonView clientPhotonView;
         GameServer server;
-        private ActionTriggerDictionary triggerDictionary = new ActionTriggerDictionary();
+        //private ActionTriggerDictionary triggerDictionary = new ActionTriggerDictionary();
 
         #endregion
 
@@ -40,12 +40,10 @@ namespace Com.PDev.PCG.Client
 
             clientPhotonView = photon_view;
 
-            PhotonNetwork.OnEventCall += this.OnEvent;
-
             if (PhotonNetwork.player.IsMasterClient)
             {
-                server = GameServer.instance;
-               
+                server = GameServer.Instance;
+                
             }
 
                 //Hashtable proprieties = new Hashtable ();
@@ -76,7 +74,8 @@ namespace Com.PDev.PCG.Client
 
         public void TriggerAction(string actionTrigger, object[] parameters = null)
         {
-            clientPhotonView.RPC(actionTrigger, PhotonTargets.MasterClient, parameters);
+            server.TriggerAction(actionTrigger, parameters);
+            
             /*
             Debug.Log("SENDING EVENT TO SERVER: " + actionTrigger);
             byte evCode = 0;    // my event 0. could be used as "group units"
@@ -108,14 +107,7 @@ namespace Com.PDev.PCG.Client
 
         #endregion
 
-        [PunRPC]
-        private void TriggerActionRPC(string actionTrigger, object[] parameters = null)
-        {
-            if (PhotonNetwork.player.IsMasterClient)
-            {
-                server.TriggerAction(actionTrigger, parameters);
-            }
-        }
+        
     }
 }
 

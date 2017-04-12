@@ -8,7 +8,7 @@ namespace Com.PDev.PCG.Server
 {
     struct PlayerTurnData
     {
-        public int id;
+        public PhotonPlayer photonPlayer;
         public int turn;
         public int phase;
     }
@@ -25,35 +25,24 @@ namespace Com.PDev.PCG.Server
         private PlayerTurnData currentPlayer;
 
         //public TurnManager(List<PlayerData> players)
-        public TurnManager(int[] playerIds, List<PhaseData> phaseData)
+        public TurnManager(PhotonPlayer[] photonPlayers, List<PhaseData> phaseData)
         {
-            foreach (int id in playerIds)
+            foreach (PhotonPlayer p in photonPlayers)
             {
-                PlayerTurnData player = new PlayerTurnData();
-                player.id = id;
-                player.turn = 0;
-                player.phase = 0;
+                PlayerTurnData pturn = new PlayerTurnData();
+                pturn.photonPlayer = p;
+                pturn.turn = 0;
+                pturn.phase = 0;
 
-                players.Add(id, player);
+                //currentPlayer = pturn;
+
+                players.Add(p.ID, pturn);
             }
 
             foreach (PhaseData phase in phaseData)
             {
                 phases.Add(new TurnPhase(phase));
             }
-
-            currentPlayer = players[0];
-        }
-
-
-        public void AddPlayer(int id)
-        {
-            PlayerTurnData player = new PlayerTurnData();
-            player.id = id;
-            player.turn = 0;
-            player.phase = 0;
-
-            players.Add(id, player);
         }
 
         public void NextPhase()

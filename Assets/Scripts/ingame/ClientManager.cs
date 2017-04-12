@@ -27,13 +27,16 @@ namespace Com.PDev.PCG.Client{
 		[Tooltip("The prefab to use for representing the player")]
 		public GameObject playerPrefab;
 
+        public int player_number = 0;
+
         #endregion
 
-       
+        #region Private Variables
+
         private PlayerData local_player;
 		private RulesetData ruleset;
 
-		public int player_number = 0;
+        #endregion
 
         #region MonoBehaviour CallBacks
 
@@ -54,9 +57,9 @@ namespace Com.PDev.PCG.Client{
 
             ServerConnection.instance.Init(photon_view);
 
-            this.TriggerAction("set_ready");
+            this.photonView.RPC("TriggerActionRPC", PhotonTargets.MasterClient, "testing", null);
 
-			/*
+            /*
 			if (playerPrefab == null) {
 				Debug.LogError("<Color=Red><a>Missing</a></Color> playerPrefab Reference (Game Manager)", this);
 			} else {
@@ -66,7 +69,7 @@ namespace Com.PDev.PCG.Client{
 				PhotonNetwork.Instantiate(this.playerPrefab.name, new Vector3(0f,0f,0f), Quaternion.identity, 0);
 			}
 			*/
-		}
+        }
 
 		// Update is called once per frame
 		void Update () {
@@ -122,7 +125,7 @@ namespace Com.PDev.PCG.Client{
 
         #region events
 
-       
+
 
 
         #endregion
@@ -130,19 +133,13 @@ namespace Com.PDev.PCG.Client{
         #region RPCs
 
         [PunRPC]
-		void SendActionRPC(string actionKey, Object arg){
-
-            //ServerConnection.instance.SendAction(actionKey, arg);
-
-		}
-
-        [PunRPC]
-        void UpdateState(int gameId)
+        private void TriggerActionRPC(string actionTrigger, object[] parameters = null)
         {
-           // Entity entity = ServerConnection.instance.GetState(gameId);
+            if (PhotonNetwork.player.IsMasterClient)
+            {
 
-           // Debug.Log(entity.debug_value);
-
+                ServerConnection.instance.TriggerAction(actionTrigger, parameters);
+            }
         }
 
         #endregion

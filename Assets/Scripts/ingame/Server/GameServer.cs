@@ -13,7 +13,7 @@ namespace Com.PDev.PCG.Server
     {
         #region SINGLETON
 
-        public static GameServer instance;
+        private static GameServer instance;
 
         public static GameServer Instance
         {
@@ -34,7 +34,9 @@ namespace Com.PDev.PCG.Server
 
         ActionTriggerDictionary triggerDictionary = new ActionTriggerDictionary();
 
-        TurnManager turn_manager = new TurnManager();
+
+
+        TurnManager turn_manager;
 
         // TEMP: using this to send RPC calls to the client
        // PhotonView masterConnection; 
@@ -46,6 +48,10 @@ namespace Com.PDev.PCG.Server
 
             //PhotonNetwork.OnEventCall += this.OnEvent;
 
+            List<PhaseData> phaseData = PhaseData.GetPhases();
+
+            turn_manager = new TurnManager(PhotonNetwork.playerList, phaseData);
+
             game = new Entity();
             game.GameId = 0;
         }
@@ -54,6 +60,7 @@ namespace Com.PDev.PCG.Server
 
         public void TriggerAction(string actionTrigger, object[] parameters)
         {
+            Debug.Log("SERVER - Resolving action: " + actionTrigger);
             // BUSCA AÇÃO
 
             // CHECA CONDIÇÕES
