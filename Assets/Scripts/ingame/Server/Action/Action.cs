@@ -1,5 +1,5 @@
 ﻿using UnityEngine;
-
+using System.Collections.Generic;
 using Object = System.Object;
 
 using Com.PDev.PCG.Data;
@@ -17,9 +17,9 @@ namespace Com.PDev.PCG.Actions
             this.arg = arg;
         }
 
-        public bool run(Entity targetEntity)
+        public bool Run()
         {
-            targetEntity.findChild(0).debug_value++;
+            EventStack.PushEvent(new Event("action"));
             return true;
 
         }

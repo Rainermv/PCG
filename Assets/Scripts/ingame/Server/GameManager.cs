@@ -1,4 +1,5 @@
 ﻿using Com.PDev.PCG.Data;
+using Com.PDev.PCG.Actions;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -13,7 +14,7 @@ namespace Com.PDev.PCG.Server
         public int phase;
     }
 
-    class TurnManager
+    class GameManager
     {
         public int PhaseCount { get { return phases.Count; } }
         
@@ -25,8 +26,10 @@ namespace Com.PDev.PCG.Server
         private PlayerTurnData currentPlayer;
         private Phase currentPhase;
 
+        Entity game;
+
         //public TurnManager(List<PlayerData> players)
-        public TurnManager(PhotonPlayer[] photonPlayers, List<PhaseData> phaseData)
+        public GameManager(PhotonPlayer[] photonPlayers, List<PhaseData> phaseData)
         {
             foreach (PhotonPlayer p in photonPlayers)
             {
@@ -44,6 +47,18 @@ namespace Com.PDev.PCG.Server
             {
                 phases.Add(phase.order, new Phase(phase));
 
+            }
+
+            game = new Entity();
+            game.GameId = 0;
+        }
+
+        public void Update()
+        {
+            while (!EventStack.IsEmpty)
+            {
+                Event nextEvent = EventStack.PopEvent();
+                Logger.Log("Processing Event", nextEvent.Name);
             }
         }
 
@@ -64,7 +79,7 @@ namespace Com.PDev.PCG.Server
             
             UnityEngine.Debug.Log("Starting Phase");
 
-            currentPhase.Run();
+            EventStack.PushEvent(new Event("new phase"));
             
         }
 
@@ -73,5 +88,9 @@ namespace Com.PDev.PCG.Server
 
         }
 
+        public void ExecuteTrigger(Trigger trigger)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

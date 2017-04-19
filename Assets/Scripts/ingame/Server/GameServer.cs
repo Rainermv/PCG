@@ -29,14 +29,12 @@ namespace Com.PDev.PCG.Server
 
         #endregion
 
-        Entity game;
+        //Entity game;
         List<Action> actionBuffer = new List<Action>();
 
         ActionTriggerDictionary triggerDictionary = new ActionTriggerDictionary();
 
-
-
-        TurnManager turn_manager;
+        GameManager gameManager;
 
         // TEMP: using this to send RPC calls to the client
        // PhotonView masterConnection; 
@@ -50,17 +48,24 @@ namespace Com.PDev.PCG.Server
 
             List<PhaseData> phaseData = PhaseData.GetPhases();
 
-            turn_manager = new TurnManager(PhotonNetwork.playerList, phaseData);
+            gameManager = new GameManager(PhotonNetwork.playerList, phaseData);
 
-            game = new Entity();
-            game.GameId = 0;
+            
         }
 
         #region public methods
 
+        public void Update()
+        {
+            gameManager.Update();
+        }
+
         public void TriggerAction(string actionTrigger, object[] parameters)
         {
-            Debug.Log("SERVER - Resolving action: " + actionTrigger);
+
+            Action action = new Action(actionTrigger, parameters);
+            action.Run();
+            //Debug.Log("SERVER - Resolving action: " + actionTrigger);
             // BUSCA AÇÃO
 
             // CHECA CONDIÇÕES
@@ -69,15 +74,15 @@ namespace Com.PDev.PCG.Server
 
             // EXECUTA EFEITO
 
-            string effect = actionTrigger; // temp
+            //string effect = actionTrigger; // temp
 
-            ActionEffectsManager.Instance.RunEffect(effect, game, parameters);
+            //ActionEffectsManager.Instance.RunEffect(effect, game, parameters);
 
         }
 
         public void InvokeEndPhase()
         {
-            turn_manager.NextPhase();
+            gameManager.NextPhase();
         }
 
 

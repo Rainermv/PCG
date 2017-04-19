@@ -71,10 +71,15 @@ namespace Com.PDev.PCG.Client{
 			*/
         }
 
-		// Update is called once per frame
-		void Update () {
+        // Update is called once per frame
+        void Update()
+        {
 
-		}
+            if (PhotonNetwork.player.IsMasterClient)
+            {
+                ServerConnection.instance.TempUpdateServer();
+            }
+        }
 
 		#endregion
 

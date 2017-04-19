@@ -94,7 +94,10 @@ namespace Com.PDev.PCG.Client
 
         }
 
-        
+        internal void TempUpdateServer()
+        {
+            server.Update();
+        }
 
         private void OnEvent(byte eventcode, object content, int senderid)
         {
